@@ -13,11 +13,7 @@ public class Stats {
 
     public long averageAmount(long[] sale){
 
-        long average = 0;
-        for (long summ : sale){
-            average += summ;
-        }
-        return (long) average/12;
+        return (long) calculateSale(sale)/12;
     }
 
     public long monthOfMaxSales(long[] sale){
@@ -41,7 +37,7 @@ public class Stats {
         for (int i = 0; i < 12; i++){
             if (s >= sale[i]){
                 month = i+1;
-                s= sale[i];
+                s = sale[i];
             }
         }
         return month;
@@ -50,12 +46,11 @@ public class Stats {
 
     public long quantityMonthOfMaxSales(long[] sale){
 
-        Stats averageYear = new Stats();
-        long average = averageYear.averageAmount(sale);
+        long average = averageAmount(sale);
         long maxMonth = 0;
         for (long summ : sale){
             if (summ > average) {
-                maxMonth = maxMonth+1;
+                maxMonth++;
             }
         }
         return maxMonth;
@@ -64,12 +59,11 @@ public class Stats {
 
     public long quantityMonthOfMinimumSales(long[] sale){
 
-        Stats averageYear = new Stats();
-        long average = averageYear.averageAmount(sale);
+        long average = averageAmount(sale);
         long minMonth = 0;
         for (long summ : sale){
             if (summ < average) {
-                minMonth = minMonth+1;
+                minMonth++;
             }
         }
         return minMonth;
