@@ -13,7 +13,7 @@ public class Stats {
 
     public long averageAmount(long[] sale){
 
-        return (long) calculateSale(sale)/12;
+        return calculateSale(sale)/12;
     }
 
     public long monthOfMaxSales(long[] sale){
